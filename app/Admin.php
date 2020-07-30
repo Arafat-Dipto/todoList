@@ -12,4 +12,7 @@ class Admin extends Authenticatable
     public function user(){
         return $this->hasMany(User::class);
     }
+    public function child(){
+        return $this->hasMany(Child::class);
+    }
 }

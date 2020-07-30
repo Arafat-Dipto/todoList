@@ -44,11 +44,11 @@
                 </li>
 
                 <li>
-                    <a href="{{ url('/admin/parent') }}"><i class="fa fa-table fa-fw"></i>Manage Prents</a>
+                    <a href="{{ url('/admin/parent') }}"><i class="fa fa-table fa-fw"></i>Manage Dom</a>
                 </li>
 
                 <li>
-                    <a href="{{ url('/admin/children') }}"><i class="fa fa-table fa-fw"></i>Manage Children</a>
+                    <a href="{{ url('/admin/children') }}"><i class="fa fa-table fa-fw"></i>Manage Sub</a>
                 </li>
                 <li>
                     <a href="{{ url('/admin/task') }}"><i class="fa fa-table fa-fw"></i>Manage Tasks</a>

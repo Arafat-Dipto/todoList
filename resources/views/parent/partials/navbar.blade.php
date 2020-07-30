@@ -44,9 +44,15 @@
                     <li>
                         <a href="{{ route('parent.addTaskShow') }}"><i class="fa fa-table fa-fw"></i> Add a task</a>
                     </li>
-                    <li>
-                        <a href="{{ url('parent/showTask') }}"><i class="fa fa-table fa-fw"></i> Manage Tasks</a>
-                    </li>
+                <li>
+                    <a href="{{ route('parent.showCreateReward') }}"><i class="fa fa-table fa-fw"></i> Create Reward</a>
+                </li>
+                <li>
+                    <a href="{{ url('parent/showTask') }}"><i class="fa fa-table fa-fw"></i> Manage Tasks</a>
+                </li>
+                <li>
+                    <a href="{{ url('parent/showReward') }}"><i class="fa fa-table fa-fw"></i> Manage Rewards</a>
+                </li>
                 <li>
                     <a href="{{ url('parent/showSubmittedTask') }}"><i class="fa fa-table fa-fw"></i> Submitted Tasks</a>
                 </li>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AssignedTask;
 use App\Child;
 use App\Ptask;
+use App\Reward;
 use App\Submission;
 use App\User;
 use Illuminate\Http\Request;
@@ -44,10 +45,31 @@ class ParentController extends Controller
                 'proof' => 0,
                 'task_done' => 0
             ]);
-            return redirect()->back()->with('taskAddedSuccess','Successfully Added Task');;
+            return redirect()->back()->with('taskAddedSuccess','Successfully Added Task');
         }
 
     }
+
+    public function showCreateReward(){
+        return view('parent.createReward');
+    }
+
+    public function createReward(){
+        $this->validate(request(),[
+            'r_name' => 'required',
+            'r_point' => 'required',
+
+        ]);
+
+        Reward::create([
+            'r_name' => request('r_name'),
+            'r_point' => request('r_point'),
+            'parent_id' => Auth::id()
+        ]);
+        return redirect()->back()->with('createSuccess','Successfully Created Reward');;
+    }
+
+
 
     public function showTask(){
         $tasks = Ptask::where('user_id',Auth::id())->paginate(10);
@@ -61,29 +83,43 @@ class ParentController extends Controller
     }
 
     public function editTask($id){
-
-//        if (request('nproof') == 1) {
-            Ptask::find($id)->update([
-                'task_name' => request('task_name'),
-                'point' => request('task_point'),
-                'proof' => 1,
-                'task_done' => 0
-            ]);
-            return redirect('/parent/showTask');
-//        }else{
-//            Ptask::find($id)->update([
-//                'task_name' => request('task_name'),
-//                'point' => request('task_point'),
-//                'proof' => 0,
-//                'task_done' => 0
-//            ]);
-//            return redirect('/parent/showTask');
-//        }
+        Ptask::find($id)->update([
+            'task_name' => request('task_name'),
+            'point' => request('task_point'),
+            'proof' => 1,
+            'task_done' => 0
+        ]);
+        return redirect('/parent/showTask');
 
     }
 
     public function deleteTask($id){
         Ptask::find($id)->delete();
+        return redirect()->back();
+    }
+
+    public function showReward(){
+        $rewards = Reward::where('parent_id',Auth::id())->paginate(10);
+        return view('parent.showAllReward',compact('rewards'));
+    }
+
+    public function showEditReward($id){
+        $reward = Reward::find($id);
+        return view('parent.showEditReward',compact('reward'));
+    }
+
+    public function editReward($id){
+        Reward::find($id)->update([
+            'r_name' => request('r_name'),
+            'r_point' => request('r_point'),
+
+        ]);
+        return redirect('/parent/showReward');
+
+    }
+
+    public function deleteReward($id){
+        Reward::find($id)->delete();
         return redirect()->back();
     }
 

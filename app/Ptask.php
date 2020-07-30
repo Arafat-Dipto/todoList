@@ -12,4 +12,7 @@ class Ptask extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
+    public function child(){
+        return $this->hasMany(Child::class);
+    }
 }

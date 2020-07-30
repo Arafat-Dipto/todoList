@@ -23,8 +23,8 @@
                             <th>Proof</th>
                             <th>Task point</th>
                             <th>Mark</th>
-                            <th>Child Username</th>
-                            <th>Parent Username</th>
+                            <th>Sub Username</th>
+                            <th>Dom Username</th>
                             <th>Action</th>
                         </tr>
                         </thead>

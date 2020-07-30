@@ -41,6 +41,9 @@ class User extends Authenticatable
         return $this->hasMany(Ptask::class);
     }
 
+    public function rewards(){
+        return $this->hasMany(Reward::class);
+    }
     public function children(){
         return $this->hasMany(Child::class);
     }

@@ -54,6 +54,13 @@ Route::get('/logout','UserController@logout');
 Route::get('/parent/dashboard','ParentController@index');
 Route::get('/parent/addTask','ParentController@showAddTask')->name('parent.addTaskShow');
 Route::post('/parent/addTask','ParentController@addTask')->name('parent.addTask');
+Route::get('/parent/createReward','ParentController@showCreateReward')->name('parent.showCreateReward');
+Route::post('/parent/createReward','ParentController@createReward')->name('parent.createReward');
+Route::get('parent/showReward','ParentController@showReward');
+Route::get('/parent/{id}/editReward','ParentController@showEditReward')->name('parent.rewardEditShow');
+Route::post('/parent/{id}/editReward','ParentController@editReward')->name('parent.rewardEdit');
+Route::get('/parent/{id}/deleteReward','ParentController@deleteReward')->name('parent.rewardDelete');
+
 Route::get('parent/showTask','ParentController@showTask');
 Route::get('/parent/{id}/editTask','ParentController@showEditTask')->name('parent.taskEditShow');
 Route::post('/parent/{id}/editTask','ParentController@editTask')->name('parent.taskEdit');
@@ -64,11 +71,12 @@ Route::post('/parent/{id}/submitMark','ParentController@submitMark')->name('pare
 
 
 Route::get('/child/dashboard','ChildController@index');
-Route::get('/child/search/parent','Childcontroller@searchParent');
-Route::get('/child/add/{id}/parent','Childcontroller@addParent')->name('child.addParent');
-Route::get('/child/showTask','Childcontroller@showAllTask');
-Route::get('/child/{task_id}/submitTask','Childcontroller@showSubmitTask')->name('child.showSubmitTask');
-Route::post('/child/{asn_id}/submitTask','Childcontroller@submitTask')->name('child.submitTask');
+Route::get('/child/search/parent','ChildController@searchParent');
+Route::get('/child/add/{id}/parent','ChildController@addParent')->name('child.addParent');
+Route::get('/child/showTask','ChildController@showAllTask');
+Route::get('/child/{task_id}/submitTask','ChildController@showSubmitTask')->name('child.showSubmitTask');
+Route::post('/child/{asn_id}/submitTask','ChildController@submitTask')->name('child.submitTask');
 Route::get('child/getTaskShow','ChildController@showGetTask')->name('child.showGetTask');
-Route::get('child/{parent_id}/getTask','ChildController@getTask')->name('child.getTask');
+Route::get('child/{parent_id}/showAddTask','ChildController@showAddTask')->name('child.showAddTask');
+Route::get('child/{task_id}/addTask','ChildController@addTask')->name('child.addTask');
 

@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Task Manager</h1>
+            <h1 class="page-header">Reward Manager</h1>
         </div>
     </div>
 
@@ -11,7 +11,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    All Tasks
+                    All Rewards
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -20,26 +20,26 @@
                             <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Task</th>
-                                <th>Task Point</th>
+                                <th>Reward</th>
+                                <th>Reward Point</th>
                                 <th>Action</th>
 
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($tasks as $key => $task)
+                            @foreach($rewards as $key => $reward)
                                 <tr>
 
                                     <td>{{ $key+1 }}</td>
-                                    <td>{{ $task->task_name }}</td>
-                                    <td>{{ $task->point }}</td>
+                                    <td>{{ $reward->r_name }}</td>
+                                    <td>{{ $reward->r_point }}</td>
                                     <td>
-                                        <a href="{{ route('parent.taskEdit',$task->id) }}" class="btn btn-warning btn-sm">Edit</a>&nbsp;&nbsp;
-                                        <a onclick="return confirm('are you sure?');" class="btn btn-danger btn-sm" href="{{ route('parent.taskDelete',$task->id) }}">Delete</a>
+                                        <a href="{{ route('parent.rewardEdit',$reward->id) }}" class="btn btn-warning btn-sm">Edit</a>&nbsp;&nbsp;
+                                        <a onclick="return confirm('are you sure?');" class="btn btn-danger btn-sm" href="{{ route('parent.rewardDelete',$reward->id) }}">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach
-                            {{ $tasks->links() }}
+                            {{ $rewards->links() }}
                             </tbody>
                         </table>
                     </div>

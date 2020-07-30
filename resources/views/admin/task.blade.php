@@ -20,7 +20,7 @@
                             <th>#</th>
                             <th>Task</th>
                             <th>Reward Point</th>
-                            <th>Created Parent</th>
+                            <th>Created By</th>
                             <th>Action</th>
                         </tr>
                         </thead>

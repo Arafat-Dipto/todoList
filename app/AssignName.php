@@ -8,10 +8,8 @@ class AssignName extends Model
 {
     protected $guarded = [];
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function task(){
+        return $this->belongsTo(Ptask::class);
     }
-    public function children(){
-        return $this->belongsTo(Child::class);
-    }
+
 }

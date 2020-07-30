@@ -18,7 +18,7 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>Parent Username</th>
+                            <th>Dom Username</th>
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Action</th>

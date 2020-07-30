@@ -27,7 +27,7 @@
                             <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Parent</th>
+                                <th>Dom</th>
                                 <th>Task</th>
                                 <th>Reward Point</th>
                                 <th>Actions</th>

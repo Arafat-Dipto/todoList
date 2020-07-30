@@ -43,7 +43,7 @@
                     <a href="{{ url('/child/dashboard') }}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{ url('/child/search/parent') }}"><i class="fa fa-table fa-fw"></i> Search Parent</a>
+                    <a href="{{ url('/child/search/parent') }}"><i class="fa fa-table fa-fw"></i> Search Dom</a>
                 </li>
                 <li>
                     <a href="{{ url('/child/getTaskShow') }}"><i class="fa fa-table fa-fw"></i> Get Tasks</a>

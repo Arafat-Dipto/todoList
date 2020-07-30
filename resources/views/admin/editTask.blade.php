@@ -13,7 +13,7 @@
                 <input value="{{ $task->task_name }}" type="text" name="task_name" placeholder="Task Name" class="form-control"><br>
                 <input value="{{ $task->point }}" type="number" name="point" placeholder="Task Point" class="form-control"><br>
 
-                <label>Created Parent</label><br>
+                <label>Created By</label><br>
                 <select name="user_id" id="" class="form-control">
                     @foreach($users as $user)
                         @if($user['username'] == $task->user->username)

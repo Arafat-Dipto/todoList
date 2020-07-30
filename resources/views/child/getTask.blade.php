@@ -18,11 +18,12 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Parent</th>
+                                <th>Dom</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
+
                             @foreach($users as $key => $user)
                             <tr>
 
@@ -30,7 +31,7 @@
                                 <td>{{ App\User::find($user->parent_id)->username }}</td>
                                 <td>
 
-                                    <a href="{{ route('child.getTask',$user->parent_id) }}" class="btn btn-warning btn-sm">Get task</a>&nbsp;&nbsp;
+                                    <a href="{{ route('child.showAddTask',$user->parent_id) }}" class="btn btn-warning btn-sm">Get task</a>&nbsp;&nbsp;
                                     {{--                                        <a onclick="return confirm('are you sure?');" class="btn btn-danger btn-sm" href="{{ route('child.taskRemove',$task->id) }}">Remove</a>--}}
                                 </td>
                             </tr>

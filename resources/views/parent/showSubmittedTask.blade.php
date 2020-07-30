@@ -21,7 +21,7 @@
                             <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Child Name</th>
+                                <th>Sub</th>
                                 <th>Task</th>
                                 <th>Proof Text</th>
                                 <th>Proof Image</th>

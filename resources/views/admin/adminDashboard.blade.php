@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">{{ App\User::count() }}</div>
-                            <div>Total Parents!</div>
+                            <div>Total Dom!</div>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">{{ App\Child::count() }}</div>
-                            <div>Total Children!</div>
+                            <div>Total Sub!</div>
                         </div>
                     </div>
                 </div>

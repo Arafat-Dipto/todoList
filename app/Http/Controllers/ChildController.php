@@ -37,23 +37,25 @@ class ChildController extends Controller
         return view('child.getTask',compact('users'));
     }
 
-    public function getTask($id)
-    {
-        $tasks_id = Ptask::where('user_id', $id)->get();
-        foreach ($tasks_id as $t_id) {
-            if (AssignedTask::where('task_id',$t_id->id)->where('child_id', Auth::guard('child')->id())->count() == 0) {
-                AssignedTask::create([
-                    'child_id' => Auth::guard('child')->id(),
-                    'task_id' => $t_id->id,
-                    't_done' => 'incomplete'
-                ]);
-            }
-            else {
-                return 'already added task';
-            }
-        }
-            return redirect('/child/showTask')->with('taskAddedSuccess','Successfully Added Task');
+    
+    public function showAddTask($pid){
+        $tasks =Ptask::where('user_id', $pid)
+            ->leftJoin('assigned_tasks', 'ptasks.id', '=', 'assigned_tasks.task_id')
+            ->select('ptasks.id','ptasks.user_id','assigned_tasks.task_id','assigned_tasks.child_id','assigned_tasks.t_done')->get();
+
+        return view('child.assignTask',compact('tasks'));
     }
+
+    public function addTask($tid){
+        AssignedTask::create([
+          'child_id' => Auth::guard('child')->id(),
+          'task_id' => $tid,
+          't_done' => 'incomplete'
+        ]);
+
+        return redirect()->back()->with('addSuccess','Successfully Added Task');
+    }
+
 
     public function showAllTask(){
         $tasks = AssignedTask::where('child_id',Auth::guard('child')->id())->paginate(10);
@@ -67,7 +69,7 @@ class ChildController extends Controller
         $asn_id = $asn->first()->id;
         return view('child.submitTask',compact(['task','asn_id']));
     }
-    
+
 
     public function submitTask($id,Request $request){
         AssignedTask::find($id)->update([
@@ -92,7 +94,8 @@ class ChildController extends Controller
                 'details' => request('t_done'),
                 'pr_img' => 'no image',
                 'gained_mark' => 0,
-                'child_id' => Auth::guard('child')->id()
+                'child_id' => Auth::guard('child')->id(),
+                'parent_id' => Ptask::where('id',AssignedTask::where('id',$id)->first()->task_id)->first()->user_id
             ]);
 
         }

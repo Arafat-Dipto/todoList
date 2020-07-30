@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Startmin - Bootstrap Admin Theme</title>
+    <link rel="shortcut icon" href="{{ asset('images/favicon/logo.png') }}" type="image/x-icon">
+    <title>Tideup</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ asset('/backend/css/bootstrap.min.css') }}" rel="stylesheet">
